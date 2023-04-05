@@ -1,0 +1,10 @@
+.navbar {
+    background-color: rgb(126, 23, 126);
+    color: rgb(126, 23, 126);
+}
+
+.scrollbar {
+    height: 60%;
+    resize: both;
+    overflow-y: scroll;
+}
