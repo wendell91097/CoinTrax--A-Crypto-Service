@@ -13,7 +13,7 @@
 <script src="main.js" defer></script>
 <title>CoinTrax - A Brand You Can Trust</title>
 </head>
-<body class="bg-dark">
+<body>
     <nav class="navbar navbar-dark bg-dark navbar-expand-lg py-3 fixed-top shadow">
         <div class="container">
             <a href="#" class="navbar-brand">CoinTrax<small class="text-muted"><h6>We Track Coins</h6></small></a>
@@ -38,30 +38,55 @@
             </div>
         </div>
     </nav>
+    <div class="bg-image">
+        <img class="img-fluid" src="static/galazy-bg.jpg" alt="">
+    </div>
     <div class="container p-5 m-3">
         <div class="container"></div>
     </div>
-    <div class="container bg-dark">
-        div.
-        <div class="row">
-            <div class="col-12 col-md-12">
-                <button class="btn btn-info" onclick="load_coins()">Load Coins</button>
-                <button class="btn btn-info" onclick="clear_data()">Clear Coins</button>
-                <button class="btn btn-info" onclick="selectDate()">Enter</button>
-        
+    <div class="container py-3">
+        <div>
+            <h1 class="p-2" style="color: rgba(255, 255, 255, .75)">Coin Center</h1>
+        </div>
+        <div class="d-flex fd-row">
+            <div>
+                <button class="btn btn-primary text-dark shadow m-2" onclick="load_coins()">Load Coins</button>
+                <button class="btn btn-primary text-dark shadow m-2" onclick="clear_data()">Clear Coins</button>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-primary text-dark dropdown-toggle shadow m-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Sort By
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Name (A-Z)</a></li>
+                    <li><a class="dropdown-item" href="#">Highest Price</a></li>
+                    <li><a class="dropdown-item" href="#">Lowest Price</a></li>
+                    <li><a class="dropdown-item" href="#">Largest Supply</a></li>
+                    <li><a class="dropdown-item" href="#">Smallest Supply</a></li>
+                </ul>
+                
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row">CoinTrax Prices</div>
-        <div class="col col-lg-4 col-md-4 col-sm-12">
-            <h1>This is your coint</h1>
-            <!-- Selected Coin? -->
+    <div class="container pb-5 mb-5">
+        <div class="col-4 col-sm-12">
+            
         </div>
-        <div class="col col-lg-8 col-md-8 col-sm-12">
-            <section class="list-group coin-list scrollbar">
-
-            </section>
+        <div class="scrollbar col-12 col-lg-7 col-xl-7">
+            <table class="table rounded shadow">
+                <thead">
+                    <tr>
+                        <th scope="col">Icon</th>
+                        <th scope="col">Symbol</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Supply</th>
+                    </tr>
+                </thead>
+                <tbody class="coin-list rounded">
+                </tbody>
+                </div>
+            </table>
         </div>
     </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>

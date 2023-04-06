@@ -4,7 +4,39 @@
 }
 
 .scrollbar {
-    height: 60%;
-    resize: both;
+    height: 400px;
     overflow-y: scroll;
+}
+
+.header {
+    position: relative;
+}
+
+.table {
+    background-color: rgba(255, 255, 255, .75);
+}
+
+.bg-image{
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+*{
+    scrollbar-width: auto;
+    scrollbar-color: #addcff #ffffff;
+}
+
+*::-webkit-scrollbar {
+    width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #addcff;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
 }
