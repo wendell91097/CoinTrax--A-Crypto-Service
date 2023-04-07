@@ -9,15 +9,25 @@ const getPrice = async () => {
     console.log(response.data)
     return response.data
 }
+
 // Create constants to hold DOM elements
 
 const DOM_Elements = {
-    coin_list : '.coin-list'
+    coin_list : '.coin-list',
+    clicked_coin : '.clicked-coin'
+}
+
+// Create the diplay_coin function
+
+const display_coin = ( symbol, name, icon, supply, price ) => {
+    const coin_html = `<img src="${icon}" class="img-fluid py-3" alt=""></img><ul><li class="d-flex fd-row"><h6 class="text-info mx-2">Name: </h6><h6 class="text-light">${name}</h6></li><li class="d-flex fd-row"><h6 class="text-info mx-2">Price: </h6><h6 class="text-light">${price}</h6></li><li class="d-flex fd-row"><h6 class="text-info mx-2">Symbol: </h6><h6 class="text-light">${symbol}</h6></li><li class="d-flex fd-row"><h6 class="text-info mx-2">Supply:</h6><h6 class="text-light">${supply}</h6></li></ul>`
+    document.querySelector(DOM_Elements.clicked_coin).innerHTML = ''
+    document.querySelector(DOM_Elements.clicked_coin).insertAdjacentHTML('beforeend', html)
 }
 // Create the Coin List HTML
 
 const create_list = ( symbol, name, icon, supply, price) => {
-    const html = `<a href="#" <tr><th scope="row"><img src="${icon}" class="img-fluid p-1" style="height:30px; width:30px"></img></th><td>${symbol}</td><td>${name}</td><td>$${price}</td><td>${supply}</td></tr></a>`
+    const html = `<tr><th scope="row"><img src="${icon}" class="img-fluid p-1" style="height:30px; width:30px"></img></th><td>${symbol}</td><td><a href="javascript:;" onclick="display_coin(${symbol},${name},${icon},${supply},${price});">${name}</a></td><td>$${price}</td><td>${supply}</td></tr>`
     document.querySelector(DOM_Elements.coin_list).insertAdjacentHTML('beforeend', html)
     // onclick="show_info(${symbol})"
 }
@@ -36,4 +46,8 @@ const load_coins = async () => {
 
 const clear_data = () => {
     document.querySelector(DOM_Elements.coin_list).innerHTML = ''
+}
+
+function coin_click(icon, symbol, name, price, supply) {
+
 }
