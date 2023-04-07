@@ -21,7 +21,7 @@ const DOM_Elements = {
 
 function display_coin( input ) {
     const coin_info = input.split(',');
-    const coin_html = `<img src="${coin_info[0]}" class="img-fluid py-3" alt=""></img><ul><li class="d-flex fd-row"><h6 class="text-info mx-1">Name: </h6><h6 class="text-light">${coin_info[1]}</h6></li><li class="d-flex fd-row"><h6 class="text-info mx-2">Price: </h6><h6 class="text-light">${coin_info[2]}</h6></li><li class="d-flex fd-row"><h6 class="text-info mx-2">Symbol: </h6><h6 class="text-light">${coin_info[3]}</h6></li><li class="d-flex fd-row"><h6 class="text-info mx-2">Supply:</h6><h6 class="text-light">${coin_info[4]}</h6></li></ul>`;
+    const coin_html = `<img src="${coin_info[0]}" class="img-fluid py-1" alt=""></img><ul><li class="d-flex fd-row"><h6 class="text-info mx-1">Name: </h6><h6 class="text-light">${coin_info[1]}</h6></li><li class="d-flex fd-row"><h6 class="text-info mx-2">Price: </h6><h6 class="text-light">${coin_info[2]}</h6></li><li class="d-flex fd-row"><h6 class="text-info mx-2">Symbol: </h6><h6 class="text-light">${coin_info[3]}</h6></li><li class="d-flex fd-row"><h6 class="text-info mx-2">Supply:</h6><h6 class="text-light">${coin_info[4]}</h6></li></ul>`;
     document.querySelector(DOM_Elements.clicked_coin).innerHTML = '';
     document.querySelector(DOM_Elements.clicked_coin).insertAdjacentHTML('beforeend', coin_html);
 }
