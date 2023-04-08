@@ -19,16 +19,16 @@ const DOM_Elements = {
 
 // Create the diplay_coin function
 
-function display_coin( input ) {
-    const coin_info = input.split(',');
-    const coin_html = `<img src="${coin_info[0]}" class="img-fluid py-1" alt=""></img><ul><li class="d-flex fd-row"><h6 class="text-info mx-1">Name: </h6><h6 class="text-light">${coin_info[1]}</h6></li><li class="d-flex fd-row"><h6 class="text-info mx-2">Price: </h6><h6 class="text-light">${coin_info[2]}</h6></li><li class="d-flex fd-row"><h6 class="text-info mx-2">Symbol: </h6><h6 class="text-light">${coin_info[3]}</h6></li><li class="d-flex fd-row"><h6 class="text-info mx-2">Supply:</h6><h6 class="text-light">${coin_info[4]}</h6></li></ul>`;
+function display_coin( icon, name, symbol, supply, price ) {
+    // const coin_info = input.split(',');
+    const coin_html = `<img src="${icon}" class="img-fluid py-1" alt=""></img><ul><li class="d-flex fd-row"><h6 class="text-info mx-1">Name: </h6><h6 class="text-light">${name}</h6></li><li class="d-flex fd-row"><h6 class="text-info mx-2">Price: </h6><h6 class="text-light">${price}</h6></li><li class="d-flex fd-row"><h6 class="text-info mx-2">Symbol: </h6><h6 class="text-light">${symbol}</h6></li><li class="d-flex fd-row"><h6 class="text-info mx-2">Supply:</h6><h6 class="text-light">${supply}</h6></li></ul>`;
     document.querySelector(DOM_Elements.clicked_coin).innerHTML = '';
     document.querySelector(DOM_Elements.clicked_coin).insertAdjacentHTML('beforeend', coin_html);
 }
 // Create the Coin List HTML
 
 const create_list = ( symbol, name, icon, supply, price) => {
-    const html = `<tr><th scope="row"><img src="${icon}" class="img-fluid p-1" style="height:30px; width:30px"></img></th><td>${symbol}</td><td onclick="display_coin('${icon},${name},${symbol},${price},${supply}')"><a href="#">${name}</a></td><td>$${price}</td><td>${supply}</td></tr>`;
+    const html = `<tr><th scope="row"><img src="${icon}" class="img-fluid p-1" style="height:30px; width:30px"></img></th><td>${symbol}</td><td onclick="display_coin('${icon}','${name}','${symbol}','${price}','${supply}')"><a href="#">${name}</a></td><td>$${price}</td><td>${supply}</td></tr>`;
     document.querySelector(DOM_Elements.coin_list).insertAdjacentHTML('beforeend', html);
     // onclick="show_info(${symbol})";
 };
