@@ -1,14 +1,9 @@
 const getData = async () => {
-    let response = await axios.get('http://api.coinlayer.com/api/list?access_key=078bc4adfe6cadd9652797b596de9c82');
+    let response = await axios.get('https://api.coingecko.com/api/v3/coins/');
     console.log(response.data);
     return response.data;
 };
 
-const getPrice = async () => {
-    let response = await axios.get('http://api.coinlayer.com/api/live?access_key=078bc4adfe6cadd9652797b596de9c82');
-    console.log(response.data);
-    return response.data;
-};
 
 // Create constants to hold DOM elements
 
@@ -27,8 +22,8 @@ function display_coin( icon, name, symbol, supply, price ) {
 }
 // Create the Coin List HTML
 
-const create_list = ( symbol, name, icon, supply, price) => {
-    const html = `<tr><th scope="row"><img src="${icon}" class="img-fluid p-1" style="height:30px; width:30px"></img></th><td>${symbol}</td><td onclick="display_coin('${icon}','${name}','${symbol}','${price}','${supply}')"><a href="#">${name}</a></td><td>$${price}</td><td>${supply}</td></tr>`;
+const create_list = ( symbol, icon, name, supply, price) => {
+    const html = `<tr><th scope="row"><img src="${icon.thumb}" class="img-fluid p-1" style="height:30px; width:30px"></img></th><td>${symbol}</td><td onclick="display_coin('${icon.large}','${name}','${symbol}','${price}','${supply}')"><a href="#">${name}</a></td><td>$${price}</td><td>${supply}</td></tr>`;
     document.querySelector(DOM_Elements.coin_list).insertAdjacentHTML('beforeend', html);
     // onclick="show_info(${symbol})";
 };
@@ -38,11 +33,12 @@ const create_list = ( symbol, name, icon, supply, price) => {
 
 const load_coins = async () => {
     const coins = await getData();
-    const crypto = coins['crypto'];
-    const coins_prices = await getPrice();
-    for(let x in crypto) { create_list(crypto[x]['symbol'], crypto[x]['name'], crypto[x]['icon_url'], crypto[x]['max_supply'], coins_prices['rates'][x]);
-        
+    console.log(coins)
+    for(let x = 0; x < coins.length; x++){
+        create_list(coins[x]['symbol'], coins[x]['image'], coins[x]['name'], coins[x].market_data.total_supply, coins[x].market_data.current_price.aed)
+        console.log('hi')
     }
+        
 };
 
 const clear_data = () => {
